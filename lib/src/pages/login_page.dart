@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:foodie/src/colors/colors.dart';
-import 'package:foodie/src/widgets/btn_back.dart';
 //Importando la libreria de mi boton personalizado en la clase de estilos
 import 'package:foodie/src/styles/button.dart';
 
@@ -116,6 +115,7 @@ class LoginPage extends StatelessWidget {
   }
 }
 
+//Campo de entrada email
 Widget _emailInput() {
   return Container(
     margin: const EdgeInsets.only(top: 40.0),
@@ -132,6 +132,7 @@ Widget _emailInput() {
   );
 }
 
+//Campo de entrada password
 Widget _passwordInput() {
   return Container(
     margin: const EdgeInsets.only(top: 15.0),
@@ -148,6 +149,7 @@ Widget _passwordInput() {
   );
 }
 
+//Boton de retroceso
 Widget _btnBack(BuildContext context, Color color) {
   return IconButton(
     icon: Icon(

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:foodie/src/colors/colors.dart';
-import 'package:foodie/src/widgets/btn_back.dart';
 import 'package:foodie/src/styles/button.dart';
 
 class RecuperarPass extends StatelessWidget {
@@ -51,6 +50,7 @@ class RecuperarPass extends StatelessWidget {
   }
 }
 
+//Crear entrada para el email
 Widget _emailInput() {
   return Container(
     margin: const EdgeInsets.only(top: 40.0),
@@ -67,6 +67,7 @@ Widget _emailInput() {
   );
 }
 
+//Lanzar alerta al usuario para actualizar la contraseña
 void _mostrarAlerta(BuildContext context) {
   showDialog(
       context: context,
@@ -110,6 +111,7 @@ void _mostrarAlerta(BuildContext context) {
       });
 }
 
+//Boton de entendido de la alerta
 Widget _btnHecho(BuildContext context) {
   return ElevatedButton(
     style: buttonSecondary,
@@ -120,6 +122,7 @@ Widget _btnHecho(BuildContext context) {
   );
 }
 
+//Boton con icono de flecha de retroceso
 Widget _btnBack(BuildContext context, Color color) {
   return IconButton(
     icon: Icon(
