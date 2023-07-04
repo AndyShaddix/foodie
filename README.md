@@ -1,6 +1,6 @@
 # foodie
 
-A new Flutter project.
+A flutter project of a delivery system from a school.
 
 ## Getting Started
 
