@@ -61,7 +61,7 @@ class LoginPage extends StatelessWidget {
                       ElevatedButton(
                         style: buttonPrimary,
                         onPressed: () {
-                          Navigator.pushNamed(context, 'login');
+                          Navigator.pushNamed(context, 'menu');
                         },
                         child: const Text('Entrar'),
                       ),
