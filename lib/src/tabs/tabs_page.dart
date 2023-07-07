@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:foodie/src/tabs/profile_tab.dart';
+//Importando las 'Pages' tab.
+import 'explore_tab.dart';
+import 'fav_tab.dart';
+import 'order_tab.dart';
 
 class TabsPage extends StatefulWidget {
   const TabsPage({super.key});
@@ -8,36 +13,55 @@ class TabsPage extends StatefulWidget {
 }
 
 class _TabsPageState extends State<TabsPage> {
+  //Arreglo de objetos.
+  List<Widget> _widgetOptions = [
+    ExplorarTab(),
+    MiOrden(),
+    Favoritos(),
+    PerfilUser()
+  ];
+  //declaracion variable tipo entero para jugar con los indices del arreglo.
+  int _selectedItem = 0;
+
+  void _cambioWidget(int index) {
+    setState(() {
+      _selectedItem = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Text('Hola Mundo:)'),
+      body: _widgetOptions.elementAt(_selectedItem),
       bottomNavigationBar: _bottomNavBar(context),
     );
   }
-}
 
-Widget _bottomNavBar(BuildContext context) {
-  return BottomNavigationBar(
-      iconSize: 30.0,
-      selectedItemColor: Theme.of(context).primaryColor,
-      unselectedItemColor: Colors.grey,
-      items: <BottomNavigationBarItem>[
-        BottomNavigationBarItem(
-          icon: Icon(Icons.explore),
-          label: 'Explorar',
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.assignment),
-          label: 'Mi orden',
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.book),
-          label: 'Favoritos',
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.person_pin),
-          label: 'Perfil',
-        ),
-      ]);
+  Widget _bottomNavBar(BuildContext context) {
+    return BottomNavigationBar(
+        iconSize: 30.0,
+        selectedItemColor: Theme.of(context).primaryColor,
+        unselectedItemColor: Colors.grey,
+        currentIndex: _selectedItem,
+        onTap: _cambioWidget,
+        showUnselectedLabels: true,
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.fastfood_rounded),
+            label: 'Menú  ',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.check_box_rounded),
+            label: 'Mi orden',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.bolt_rounded),
+            label: 'Favoritos',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.account_circle_outlined),
+            label: 'Perfil',
+          ),
+        ]);
+  }
 }

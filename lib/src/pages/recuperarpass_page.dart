@@ -126,7 +126,7 @@ Widget _btnHecho(BuildContext context) {
 Widget _btnBack(BuildContext context, Color color) {
   return IconButton(
     icon: Icon(
-      Icons.arrow_back,
+      Icons.arrow_back_rounded,
       color: color,
       size: 50.0,
     ),
