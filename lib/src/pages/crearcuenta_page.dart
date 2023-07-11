@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../colors/colors.dart';
 //Botones propios
 import '../styles/button.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class SignUp extends StatelessWidget {
   const SignUp({super.key});

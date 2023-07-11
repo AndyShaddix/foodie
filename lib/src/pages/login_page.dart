@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:foodie/src/colors/colors.dart';
+//Autenticacion con Google con Firebase
 //Importando la libreria de mi boton personalizado en la clase de estilos
 import 'package:foodie/src/styles/button.dart';
 
