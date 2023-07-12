@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:ui';
+import 'package:firebase_auth/firebase_auth.dart';
 //Importando la libreria de mi boton personalizado en la clase de estilos
 import 'package:foodie/src/styles/button.dart';
 
@@ -24,9 +25,8 @@ class _nameState extends State<PaginaBienvenida> {
                 image: DecorationImage(
               fit: BoxFit.cover,
               image: AssetImage('assets/WelcomeBG.jpeg'),
-              //Imagen desde internet.
-              /*image: NetworkImage(
-                        'https://images.pexels.com/photos/1583884/pexels-photo-1583884.jpeg')*/
+/*Imagen desde internet.
+image: NetworkImage('https://images.pexels.com/photos/1583884/pexels-photo-1583884.jpeg')*/
             )),
             child: BackdropFilter(
               filter: ImageFilter.blur(sigmaX: 2.0, sigmaY: 2.0),

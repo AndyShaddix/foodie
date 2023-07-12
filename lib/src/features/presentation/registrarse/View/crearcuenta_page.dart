@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 //Colores propios
-import '../colors/colors.dart';
+import '../../../../colors/colors.dart';
 //Botones propios
-import '../styles/button.dart';
+import '../../../../styles/button.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class SignUp extends StatelessWidget {

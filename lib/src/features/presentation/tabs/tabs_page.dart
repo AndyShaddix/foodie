@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:foodie/src/tabs/profile_tab.dart';
+import 'package:foodie/src/features/presentation/tabs/profile_tab.dart';
 //Importando las 'Pages' tab.
 import 'explore_tab.dart';
 import 'fav_tab.dart';
@@ -14,11 +14,11 @@ class TabsPage extends StatefulWidget {
 
 class _TabsPageState extends State<TabsPage> {
   //Arreglo de objetos.
-  List<Widget> _widgetOptions = [
-    ExplorarTab(),
-    MiOrden(),
-    Favoritos(),
-    PerfilUser()
+  final List<Widget> _widgetOptions = [
+    const ExplorarTab(),
+    const MiOrden(),
+    const Favoritos(),
+    const PerfilUser()
   ];
   //declaracion variable tipo entero para jugar con los indices del arreglo.
   int _selectedItem = 0;

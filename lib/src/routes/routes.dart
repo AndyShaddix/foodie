@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 //Pantallas
-import 'package:foodie/src/pages/bienvenida_pantalla.dart';
-import 'package:foodie/src/pages/login_page.dart';
-import 'package:foodie/src/pages/recuperarpass_page.dart';
-import '../pages/crearcuenta_page.dart';
-import '../tabs/tabs_page.dart';
+import 'package:foodie/src/features/presentation/bienvenida/View/bienvenida_pantalla.dart';
+import 'package:foodie/src/features/presentation/login/View/login_page.dart';
+import 'package:foodie/src/features/presentation/recuperarpass/View/recuperarpass_page.dart';
+import '../features/presentation/registrarse/View/crearcuenta_page.dart';
+import '../features/presentation/tabs/tabs_page.dart';
 
 final routes = <String, WidgetBuilder>{
   'bienvenida': (BuildContext context) => const PaginaBienvenida(),
