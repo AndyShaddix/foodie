@@ -1,8 +1,10 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'dart:ui';
 import 'package:firebase_auth/firebase_auth.dart';
 //Importando la libreria de mi boton personalizado en la clase de estilos
 import 'package:foodie/src/styles/button.dart';
+import '../../../../../auth_google.dart';
 
 class PaginaBienvenida extends StatefulWidget {
   const PaginaBienvenida({super.key});
@@ -16,6 +18,7 @@ class _nameState extends State<PaginaBienvenida> {
   @override
   Widget build(BuildContext context) {
     // ignore: prefer_const_constructors
+    Firebase.initializeApp();
     return Scaffold(
       body: Stack(
         children: [
@@ -53,8 +56,12 @@ image: NetworkImage('https://images.pexels.com/photos/1583884/pexels-photo-15838
               const SizedBox(height: 20),
               ElevatedButton.icon(
                 style: buttonSecondary,
-                onPressed: () {
-                  Navigator.pushNamed(context, 'login');
+                onPressed: () async {
+                  User? user = await Authenticator.iniciarSesion(context);
+                  print(user?.displayName);
+                  if (user != null) {
+                    Navigator.pushNamed(context, 'menu');
+                  }
                 },
                 icon: Image.asset('assets/google512px.png', scale: 25),
                 label: const Text('Entrar con Google.'),
