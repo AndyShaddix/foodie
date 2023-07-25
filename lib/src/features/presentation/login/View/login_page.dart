@@ -18,13 +18,12 @@ class LoginPage extends StatelessWidget {
           Stack(
             children: [
               const Image(
-                width: double.infinity,
-                height: 500.0,
-                fit: BoxFit.cover,
-                image: AssetImage('assets/LoginPage.jpg'),
-                /*image: NetworkImage(
-                      'https://cocogrill.net/wp-content/uploads/2021/03/recetas-para-hacer-burritos-de-carne-asada-cocogrill.jpg')*/
-              ),
+                  width: double.infinity,
+                  height: 400.0,
+                  fit: BoxFit.cover,
+                  //image: AssetImage('assets/LoginPage.jpg'),
+                  image: NetworkImage(
+                      'https://mpda-project.000webhostapp.com/img/card6.jpg')),
               Container(
                 margin: const EdgeInsets.only(top: 60.0),
                 child: _btnBack(context, Colors.black),

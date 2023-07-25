@@ -74,6 +74,10 @@ flutter:
       - assets/card3.jpg
       - assets/card4.jpg
       - assets/card5.jpg
+      - assets/comidas.png
+      - assets/bebidas.png
+      - assets/snacks.png
+      - assets/temporada.png
 
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
