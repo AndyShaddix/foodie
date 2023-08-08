@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_unnecessary_containers
+
 import 'package:flutter/material.dart';
 import '../../../colors/colors.dart';
 import 'package:carousel_slider/carousel_slider.dart';
@@ -11,10 +13,37 @@ class ExplorarTab extends StatefulWidget {
   State<ExplorarTab> createState() => _ExplorarTabState();
 }
 
+class CardItem {
+  final String rutaImg;
+  final String titulo;
+  const CardItem({
+    required this.rutaImg,
+    required this.titulo,
+  });
+}
+
 class _ExplorarTabState extends State<ExplorarTab> {
   int activeIndex = 0;
+  List<CardItem> items = [
+    const CardItem(
+      rutaImg: 'assets/comidas.png',
+      titulo: 'Comidas',
+    ),
+    const CardItem(
+      rutaImg: 'assets/bebidas.png',
+      titulo: 'Bebidas',
+    ),
+    const CardItem(
+      rutaImg: 'assets/snacks.png',
+      titulo: 'Snacks',
+    ),
+    const CardItem(
+      rutaImg: 'assets/temporada.png',
+      titulo: 'De temporada',
+    ),
+  ];
 
-  final assetsImages = const [
+  final assetsImages = [
     'https://mpda-project.000webhostapp.com/img/card1.jpeg',
     'https://mpda-project.000webhostapp.com/img/card6.jpg',
     'https://mpda-project.000webhostapp.com/img/card2.jpg',
@@ -22,13 +51,14 @@ class _ExplorarTabState extends State<ExplorarTab> {
     'https://mpda-project.000webhostapp.com/img/card4.jpg',
     'https://mpda-project.000webhostapp.com/img/card5.jpg'
   ];
-  final menuImages = const [
-    'assets/comidas.png'
-        'assets/bebidas.png'
-        'assets/snacks.png'
-        'assets/temporada.png'
+
+  final rutas = [
+    'comidas',
+    'bebidas',
+    'snacks',
+    'temporada',
   ];
-  int aIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -81,8 +111,24 @@ class _ExplorarTabState extends State<ExplorarTab> {
                 "Hamburguesa con papas",
                 r"MXN $80"),
             const SizedBox(height: 12),
-            _headers(context, 'Menú', 'Mostar más'),
+            Container(
+                margin: const EdgeInsets.only(left: 20.0),
+                alignment: Alignment.centerLeft,
+                child: encabezado('Menú', Colors.black, 30.0)),
             const SizedBox(height: 12),
+            // ignore: sized_box_for_whitespace
+            Container(
+              height: 300.0,
+              child: ListView.separated(
+                scrollDirection: Axis.horizontal,
+                itemCount: 4,
+                separatorBuilder: (context, index) =>
+                    const SizedBox(width: 12.0),
+                itemBuilder: (context, index) =>
+                    buildCard(context: context, item: items[index]),
+              ),
+            ),
+            const SizedBox(height: 20),
           ],
         ),
       ])),
@@ -90,7 +136,8 @@ class _ExplorarTabState extends State<ExplorarTab> {
   }
 
   Widget buildIndicator() => AnimatedSmoothIndicator(
-        effect: ExpandingDotsEffect(dotWidth: 15, activeDotColor: amarillo),
+        effect:
+            const ExpandingDotsEffect(dotWidth: 15, activeDotColor: amarillo),
         activeIndex: activeIndex,
         count: assetsImages.length,
       );
@@ -106,7 +153,7 @@ Widget _topBar(BuildContext context) {
         decoration: BoxDecoration(
             border: Border.all(color: const Color.fromRGBO(234, 236, 239, 1.0)),
             borderRadius: BorderRadius.circular(50.0)),
-        child: Row(children: [
+        child: Row(children: const [
           Icon(
             Icons.search,
             size: 45.0,
@@ -305,3 +352,38 @@ Widget _populares(
     ],
   );
 }
+
+Widget buildCard({required BuildContext context, required CardItem item}) =>
+    Container(
+        width: 300,
+        height: 200,
+        color: Colors.white,
+        child: Column(
+          children: [
+            Expanded(
+              child: AspectRatio(
+                aspectRatio: 4 / 3,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(20.0),
+                  child: Material(
+                    child: Ink.image(
+                      image: AssetImage(item.rutaImg),
+                      fit: BoxFit.contain,
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.pushNamed(context, item.titulo);
+                        },
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            const SizedBox(height: 4),
+            Text(
+              item.titulo,
+              style: const TextStyle(
+                  fontSize: 30.0, fontWeight: FontWeight.bold, color: amarillo),
+            ),
+          ],
+        ));

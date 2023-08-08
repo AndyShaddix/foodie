@@ -41,6 +41,7 @@ dependencies:
   smooth_page_indicator: ^1.1.0
   carousel_slider: ^4.2.1
   google_sign_in: ^5.0.0
+  cloud_firestore: ^4.8.4
 
 dev_dependencies:
   flutter_test:
@@ -78,7 +79,9 @@ flutter:
       - assets/bebidas.png
       - assets/snacks.png
       - assets/temporada.png
-
+      - assets/registrate.png
+      - assets/backdata.png
+      - assets/formulario.png
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 

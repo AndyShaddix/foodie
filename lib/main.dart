@@ -2,9 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:foodie/src/colors/colors.dart';
 import 'package:foodie/src/routes/routes.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'firebase_options.dart';
 
-void main() => runApp(const MyApp());
+void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  Firebase.initializeApp();
+  runApp(const MyApp());
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -23,6 +26,6 @@ class MyApp extends StatelessWidget {
                 iconTheme:
                     IconThemeData(color: Color.fromARGB(255, 255, 255, 255))),
             colorScheme: ColorScheme.fromSwatch()
-                .copyWith(secondary: Color.fromARGB(255, 243, 164, 16))));
+                .copyWith(secondary: const Color.fromARGB(255, 243, 164, 16))));
   }
 }

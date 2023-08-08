@@ -1,4 +1,6 @@
 //Importando librerias necesarias
+// ignore_for_file: avoid_print
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -33,6 +35,7 @@ credenciales para el usuario*/
         user = userCredential.user;
         return user;
       } on FirebaseAuthException catch (e) {
+        // ignore: prefer_interpolation_to_compose_strings
         print("Error en la autenticacion" + e.toString());
       }
     }
