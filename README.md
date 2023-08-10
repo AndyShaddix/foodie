@@ -1,4 +1,4 @@
-# foodie
+# Foodie
 
 A flutter project of a delivery system from a school.
 
